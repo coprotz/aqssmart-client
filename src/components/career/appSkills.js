@@ -1,0 +1,3 @@
+export const appSkills = [
+    { name: 'Adaptability' }, { name: 'Attention to detail' }, { name: 'Collaboration' }, { name: 'Communication' }, { name: 'Creativity' }, { name: 'Customer Service' }, { name: 'Decsion Making' }, { name: 'Empathy' }, { name: 'Leadership' }, { name: 'Multitasking' }, { name: 'Problem-solving' }, { name: 'Self-motivation' }, { name: 'Time management' }, { name: 'Work ethic' }, { name: 'Positive altitude' }, { name: 'Patience' }, { name: 'Team work' }, { name: 'Data Privacy' }
+]
