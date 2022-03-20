@@ -5,6 +5,8 @@ import { careers } from '../careers'
 import { useState } from 'react'
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Job from '../../images/job1.jpg'
+import TopBar from '../topbar/TopBar'
+
 
 
 
@@ -15,6 +17,7 @@ const CareerInvite = ({next}) => {
   // console.log(activeCareer)
   return (
     <div className='careers_invite'>
+        <TopBar />
         <div className="career_1">
           <h1 className='career_title'>Let's Work Together</h1>
         </div>

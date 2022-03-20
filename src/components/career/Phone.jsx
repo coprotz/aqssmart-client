@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { signinUser } from '../../redux/slices/users/authUserSlice'
+import { FaArrowRight} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const Phone = ({ go, next, previous, formData, setForm }) => {
@@ -38,19 +40,19 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
   }
 
   return (
-    <div className='person_detail'>
-      <div className="person_top">
-        <h2>Login</h2>
-        <div className="log_number">
-          <label htmlFor="">Please enter a mobile number</label>
-          
-        </div>
-     
-      <form onSubmit={Continue} className="person_wrapper">
+    <div className='login_phone'>
+           
+        <div className="login_sub_title">
+          <label>Please enter a mobile number</label> 
+          {error? 
+              <div className='error'>{error}</div>
+          : null}         
+        </div>     
+      <form onSubmit={Continue} className="login_form_wrapper">
         <motion.div initial={{ x: '-100vw' }}
           animate={{ x: 0 }} >
 
-          <div className="formGroup">
+          <div className="login_group">
             {/* <label htmlFor="">Please enter Your Mobile Number</label> */}
             <input
               type="tel"
@@ -59,37 +61,39 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
               onChange={setForm}
               required
               placeholder="Mobile Number start with +255?"
-              className='form_group_input'
+              className='login_input'
             />
-            {error? 
-              <div className='error'>{error}</div>
-            : null}
-          </div>
-
-        </motion.div>
-        <div className="form__btn__action">          
-            {phone === '' || error?            
+            <div className="login__btn">          
+            {phone === ''?            
               <button
                 disabled={true}
                 className="disabled"
-              >Continue
+              ><FaArrowRight/>
               </button>
               :
               <button
                 type="submit"
                 className="logerBtn"
-              >Continue
-              </button>
+              ><FaArrowRight/>
+            </button>
             
-            }
-            {error? 
-            <button onClick={() => window.location.reload(false)}>Reset</button>
-            :null}
+            }          
           
+          </div>
         </div>
+        <div className="forget">
+          <span>Forget your mobile Number?</span>
+          <Link to='/change'>Go</Link>
+        </div>
+        
+           
+       
+
+        </motion.div>
+        
       </form>
-      </div>
     </div>
+
   )
 }
 

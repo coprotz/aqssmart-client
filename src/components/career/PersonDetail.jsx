@@ -20,23 +20,7 @@ const PersonDetail = ({go, next, previous, formData, setForm}) => {
     e.preventDefault();
     
     if(phone.length !== 13) {
-      return setError("Mobille phone is invalid")} 
-    
-    // const response = await axios.post("http://localhost:8800/api/users",username, phone, email)
-    // .then((response) => {
-    //  
-    // }).catch((e) => {
-    //   const errors = e.response.data;
-    //   console.log(errors)
-    // });
-    
-    // const responseJson = await response.json();
-
-    // if (response.status !== 200) {
-    //   // setServerError({error: reponseJson.error});
-    // } else {
-    //   
-    // }
+      return setError("Mobille phone is invalid")}    
     next();
     
       

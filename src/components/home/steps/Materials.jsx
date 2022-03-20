@@ -7,10 +7,10 @@ const Materials = () => {
         <div className="text__box">
             <h1>Materials Prices</h1>
             <span className='separator'></span>
-            <p>ncase you are facing this issue with a react-native dependency 
-                then once you have installed the recommended version be sure to 
-                update your pod file.</p>
-                <a href='/services'><button className='sli__btn'>Get Started</button></a>
+            <p>Materials prices can be obtain from various suppliers within the Country and outside. Select the best
+              suppliers at your destination.
+                </p>
+                <a href='/login'><button className='sli__btn'>Get Started</button></a>
         </div>
         <img src={Matbg} className="slide__img"/>
     </div>

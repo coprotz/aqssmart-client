@@ -1,14 +1,18 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import {motion} from 'framer-motion'
+import { FaArrowRight} from "react-icons/fa";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import Footer from '../Footer';
+import Logo from '../../images/amzuu1.png'
 import { useNavigate } from 'react-router-dom';
 import { verifyUser } from '../../redux/slices/users/verifyUserSlice';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
-import { FaTimes } from "react-icons/fa";
 
 
-const Code = ({ go, next, previous, formData, setForm }) => {
-  const navigate = useNavigate();
+
+const Code = ({go, next, previous, formData, setForm}) => {
+    const navigate = useNavigate();
   const { phone, otp } = formData
 
   const dispatch = useDispatch()
@@ -23,11 +27,14 @@ const Code = ({ go, next, previous, formData, setForm }) => {
   const {signinStatus, error, status} = useSelector((state) => state.verifyUser)
 
   console.log(signinStatus)
-  // console.log('message', message)
+  
   console.log('type', type)
 
   // const { status, error, signupStatus } = useSelector((state) => state.authUser)
-    // const message = useSelector((state) => state?.authUser?.user?.message)
+    const message = useSelector((state) => state?.authUser?.user?.message)
+    // const type = useSelector((state) => state?.authUser?.user?.message)
+
+    console.log('message', message)
 
   console.log('userId', userId)
   console.log('username', username)
@@ -46,7 +53,7 @@ const Code = ({ go, next, previous, formData, setForm }) => {
       // if (isComplete === true) {
       //   navigate(`/admin/${username}`)
       // } else {
-        if(!error){
+        if(type === 'success'){
           navigate(`/applicant/${username}`)
         }
         
@@ -59,54 +66,83 @@ const Code = ({ go, next, previous, formData, setForm }) => {
     // navigate('/applicant/1')
   }
 
-
   return (
-    <div className='person_detail'>
-      <div className="message_error">
-          {error && <div className="error">{error}</div>  }
-      
-       
+    <div className='login'>
+      <div className="logo_2" onClick={() => go('1')}>
+        <img src={Logo} alt="" />
       </div>
-      <div className="person_top">
-        <h2>Log in</h2>       
-        <div className="log_number">
-          <label htmlFor="">Mobile number</label>
-          <div className="mobile_change">
-            <span>{phone}</span>
-            <Link to='/change'>Change number?</Link>
+      <div className="login_wrapper"> 
+        <div className="login_1">            
+          <div className="login_1_top"> 
+                {error? 
+                    <div className='error'>{error}</div>
+                : null} 
+                {message? 
+                    <div className='success'>{message}</div>
+                : null}           
+            <div className="login_logo">
+                <span className="login_btn_action" onClick={() => {previous()}}>
+                      <button className='login_close_btn'><AiOutlineArrowLeft /></button>
+                </span>
+                <h2 className='title_head'>OTP</h2>
+            </div>
+            <div className='component'> 
+              <div className='login_phone'> 
+                <div className="login_sub_title">
+                  <label>Please enter OTP</label> 
+                    {/* {error? 
+                      <div className='error'>{error}</div>
+                    : null}          */}
+                </div> 
+                <form onSubmit={onSubmit}  className="login_form_wrapper"> 
+                  <motion.div initial={{ x: '-100vw'}}
+                    animate={{x:0}} >                     
+                        <div className="login_group">
+                            <input 
+                             type="text"
+                             name='otp'
+                             inputMode="numeric"
+                             autoComplete="one-time-code"
+                             value={otp}
+                             onChange={setForm}
+                             required
+                             placeholder="OTP?"
+                             className='login_input'
+                             
+                          
+                            />
+                            <div className="login__btn"> 
+                              {otp === ''?
+                                <button
+                                  disabled={true}
+                                  className="disabled"
+                                  ><FaArrowRight/>
+                                  </button>
+                                :
+                                <button 
+                                    type="submit"
+                                    onClick={onSubmit}
+                                  className="logerBtn"
+                                  ><FaArrowRight/>
+                                </button>
+                              }
+                            </div> 
+                        </div> 
+                      </motion.div>
+                  </form>               
+              </div> 
+            </div> 
+          </div>                               
+          <div className="login_footer">
+            <Footer/>
           </div>
         </div>
-     
-      <form onSubmit={onSubmit} className="person_wrapper">
-        <motion.div initial={{ x: '-100vw' }}
-          animate={{ x: 0 }}  >
-
-          <div className="formGroup">
-            {/* <label htmlFor="">Please enter the OTP sent to {phone}</label> */}
-            <input
-              type="text"
-              name='otp'
-              inputMode="numeric"
-              autoComplete="one-time-code"
-              value={otp}
-              onChange={setForm}
-              required
-              placeholder="OTP?"
-              className='form_group_input'
-            // className='code_input'
-            />
-          </div>
-          {/* {message && <p className="success__message">{message}</p> || error && <p className="error__message">{error}</p>} */}
-
-        </motion.div>
-        <div className="form__btn__action">
-          <button onClick={() => { previous() }}>Previous</button>
-          <button type='submit' onClick={onSubmit}>SEND</button>
-        </div>
-      </form>
+        <div className="login_2"></div>
       </div>
     </div>
+    
   )
+  
 }
 
 export default Code

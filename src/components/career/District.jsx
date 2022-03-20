@@ -4,11 +4,14 @@ import { FaArrowRight} from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Footer from '../Footer';
 import Logo from '../../images/amzuu1.png'
+import { regions } from '../Regions'
+import { useState } from 'react'
 
-const Position = ({go, next, previous, formData, setForm}) => {
-    const { position} = formData
-    const move = (1/15)*100
+const District = ({go, next, previous, formData, setForm}) => {
+    const { region, district } = formData
+    const move = (10/15)*100
 
+    const selectedReg = regions.find((r) => r.name === region)
   return (
     <div className='login'>
       <div className="logo_2" onClick={() => go('1')}>
@@ -16,20 +19,20 @@ const Position = ({go, next, previous, formData, setForm}) => {
       </div>
       <div className="login_wrapper"> 
         <div className="login_1"> 
-          <div className="progressbar">
+            <div className="progressbar">
                 <span className="progres_status" style={{width:`${move}%`}}></span>
-          </div>
+            </div>
           <div className="login_1_top">           
             <div className="login_logo">
                 <span className="login_btn_action" onClick={() => {previous()}}>
                       <button className='login_close_btn'><AiOutlineArrowLeft /></button>
                 </span>
-                <h2 className='title_head'>Position</h2>
+                <h2 className='title_head'>District</h2>
             </div>
             <div className='component'> 
               <div className='login_phone'> 
                 <div className="login_sub_title">
-                  <label>Your application Position?</label> 
+                  <label>Your Working District?</label> 
                     {/* {error? 
                       <div className='error'>{error}</div>
                     : null}          */}
@@ -38,19 +41,20 @@ const Position = ({go, next, previous, formData, setForm}) => {
                   <motion.div initial={{ x: '-100vw'}}
                     animate={{x:0}} >                     
                         <div className="login_group">
-                            <select 
-                              name='position' 
-                              value={position} 
-                              id="" 
-                              onChange={setForm}
-                              className='login_input'
-                              >                            
-                              <option value="">--Select Position--</option>
-                              <option value="Data Collection Freelancer">Data Collection Freelancer</option>
-                          
+                        <select 
+                            name='district' 
+                            value={district} 
+                            id="" 
+                            onChange={setForm}
+                            className='login_input'
+                            >                            
+                            <option value="">--Select District--</option>
+                            {selectedReg?.districts.map((d, index) => (
+                                <option value={d} key={index} name="district">{d}</option>
+                            ))}
                             </select>
                             <div className="login__btn"> 
-                              {position === ''?
+                              {region === ''?
                                 <button
                                   disabled={true}
                                   className="disabled"
@@ -82,4 +86,4 @@ const Position = ({go, next, previous, formData, setForm}) => {
   
 }
 
-export default Position
+export default District

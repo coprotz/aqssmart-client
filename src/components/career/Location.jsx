@@ -4,7 +4,7 @@ import { regions } from '../Regions'
 import { useState } from 'react'
 
 
-const Location = ({go, next, previous, formData, setForm}) => {
+const Location = ({go, next, previous, formData, setForm, steps}) => {
 
     const { region, district, street} = formData
 
@@ -27,8 +27,11 @@ const Location = ({go, next, previous, formData, setForm}) => {
 
   return (
     <div className='person_detail'>
+      <div className="progressbar">
+        <span className="progres_status" style={{width:'12%'}}></span>
+      </div>
       <div className="person_top">       
-        <h2>Your Working Location?</h2>
+        <h2 className='title_head'>Region</h2>
       </div> 
       <div className="cover_1">         
       <motion.div initial={{ x: '-100vw'}}

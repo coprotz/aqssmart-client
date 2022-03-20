@@ -6,9 +6,9 @@ import Footer from '../Footer';
 import Logo from '../../images/amzuu1.png'
 import { BsArrowRight } from "react-icons/bs";
 
-const Education = ({go, next, previous, formData, setForm}) => {
-    const { education } = formData
-    const move = (13/15)*100
+const Computer = ({go, next, previous, formData, setForm}) => {
+    const { computer } = formData
+    const move = (15/15)*100
   return (
     <div className='login'>
       <div className="logo_2" onClick={() => go('1')}>
@@ -24,12 +24,12 @@ const Education = ({go, next, previous, formData, setForm}) => {
                 <span className="login_btn_action" onClick={() => {previous()}}>
                       <button className='login_close_btn'><AiOutlineArrowLeft /></button>
                 </span>
-                <h2 className='title_head'>Education</h2>
+                <h2 className='title_head'>Computer</h2>
             </div>
             <div className='component'> 
               <div className='login_phone'> 
                 <div className="login_sub_title">
-                  <label>Your Education Level?</label> 
+                  <label>Your Computer Knowledge?</label> 
                     {/* {error? 
                       <div className='error'>{error}</div>
                     : null}          */}
@@ -37,37 +37,26 @@ const Education = ({go, next, previous, formData, setForm}) => {
                 <div className="login_form_wrapper"> 
                   <motion.div initial={{ x: '-100vw'}}
                     animate={{x:0}} >                     
-                       <div className="career_group"
-                            value={education}
+                       <div  className="career_group"
+                            value={computer}
                             onChange={setForm} 
                             required>                           
-                           <div className='radio_grid'>
-                              <div className="btn-radio"><input type="radio" name="education" value="Olevel" required />Olevel </div>
-                              <div className="btn-radio"><input type="radio" name="education" value="Alevel" required />Alevel</div>
-                              <div className="btn-radio"><input type="radio" name="education" value="Certificate" required />Certificate</div>
-                              <div className="btn-radio"><input type="radio" name="education" value="Diploma" required />Diploma</div>
-                              <div className="btn-radio"><input type="radio" name="education" value="Bachelor" required />Bachelor</div>
+                           <div>
+                                <div className="btn-radio"><input type="radio" name="computer" value="Basic" required />Basic </div>
+                                <div className="btn-radio"><input type="radio" name="computer" value="Intermediate" required />Intermediate</div>
+                                <div className="btn-radio"><input type="radio" name="computer" value="Advance" required />Advance</div>
                             </div>
-
                                                                     
                         </div>
-                          {education === 'Olevel'?
+                          {computer === 'Basic'?
                           <div className="next_btn">
                               <BsArrowRight onClick={() => {next()}}/>
                           </div> : null}
-                          {education === 'Alevel'?
+                          {computer === 'Intermediate'?
                           <div className="next_btn">
                               <BsArrowRight onClick={() => {next()}}/>
                           </div> : null}
-                          {education === 'Certificate'?
-                          <div className="next_btn">
-                              <BsArrowRight onClick={() => {next()}}/>
-                          </div> : null}
-                          {education === 'Diploma'?
-                          <div className="next_btn">
-                              <BsArrowRight onClick={() => {next()}}/>
-                          </div> : null}
-                          {education === 'Bachelor'?
+                          {computer === 'Advance'?
                           <div className="next_btn">
                               <BsArrowRight onClick={() => {next()}}/>
                           </div> : null}
@@ -88,4 +77,4 @@ const Education = ({go, next, previous, formData, setForm}) => {
   
 }
 
-export default Education
+export default Computer

@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 import './login.css'
-import LoginImg from '../../images/login.png'
+import LoginImg from '../../images/aqs.png'
 import { useForm, useStep } from 'react-hooks-helper'
 import { useDispatch, useSelector } from 'react-redux'
-import Code from '../career/Code'
+import Otp from '../career/Otp'
 import Phone from '../career/Phone'
 import Logo from '../../images/amzuu1.png'
 // import { signinUser } from '../../redux/slices/users/usersSlice'
@@ -16,7 +16,7 @@ import { useEffect } from 'react'
 
 const steps = [
     { id: '1', Component: Phone },
-    { id: '2', Component: Code }
+    { id: '2', Component: Otp }
 ]
 
 const defaultData = {
@@ -44,29 +44,28 @@ const Login = () => {
 
     return (
         <div className='login'>
-            <Link to='/careers' className="login_btn_action">
-                <button className='login_close_btn'><AiOutlineArrowLeft /></button>Career Page
-        </Link>
-
+            <div className="logo_2" onClick={() => go('1')}>
+                <img src={Logo} alt="" />
+            </div>
             <div className="login_wrapper">
-                <div className="login_3">
-                   
-                    <div className="login_logo">
-                        {/* <img className="login_img" src={Logo} alt="" /> */}
-                        {/* <h1 className='login_title'>WELCOME BACK</h1> */}
-                    </div>
-           
-                    <div className='component'>
-                        <Component {...props} />
-                    </div>
-                    {/* <Link to='/change' className='change_mobi'>Change My Mobile Number</Link>                    */}
+                <div className="login_1"> 
+                    <div className="login_1_top">              
+                        <div className="login_logo">
+                            <Link to='/careers' className="login_btn_action">
+                                <button className='login_close_btn'><AiOutlineArrowLeft /></button>
+                            </Link>
+                            <h2 className='title_head'>Login</h2>
+                        </div>
+            
+                        <div className='component'>
+                            <Component {...props} />
+                        </div>
+                    </div>                                
                     <div className="login_footer">
                         <Footer/>
                     </div>
                 </div>
-                <div className="login_2">
-                    <img src={LoginImg} alt="" />
-                </div>
+                <div className="login_2"></div>
             </div>
         </div>
     )
