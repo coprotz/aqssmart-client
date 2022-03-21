@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Job from '../../images/job1.jpg'
 import TopBar from '../topbar/TopBar'
+import { Link } from "react-router-dom";
 
 
 

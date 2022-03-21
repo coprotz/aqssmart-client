@@ -5,6 +5,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import Footer from '../Footer';
 import Logo from '../../images/amzuu1.png'
 import { BsArrowRight } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const English = ({go, next, previous, formData, setForm}) => {
     const { english } = formData
@@ -12,7 +13,7 @@ const English = ({go, next, previous, formData, setForm}) => {
   return (
     <div className='login'>
       <div className="logo_2" onClick={() => go('1')}>
-        <img src={Logo} alt="" />
+      <Link to='/careers'><img src={Logo} alt="" /></Link>
       </div>
       <div className="login_wrapper"> 
         <div className="login_1"> 

@@ -6,6 +6,7 @@ import Footer from '../Footer';
 import Logo from '../../images/amzuu1.png'
 import { regions } from '../Regions'
 import { useState } from 'react'
+import { Link } from "react-router-dom";
 
 const District = ({go, next, previous, formData, setForm}) => {
     const { region, district } = formData
@@ -15,7 +16,7 @@ const District = ({go, next, previous, formData, setForm}) => {
   return (
     <div className='login'>
       <div className="logo_2" onClick={() => go('1')}>
-        <img src={Logo} alt="" />
+      <Link to='/careers'><img src={Logo} alt="" /></Link>
       </div>
       <div className="login_wrapper"> 
         <div className="login_1"> 

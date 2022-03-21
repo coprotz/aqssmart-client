@@ -5,6 +5,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BsArrowRight } from "react-icons/bs";
 import Footer from '../Footer';
 import Logo from '../../images/amzuu1.png'
+import { Link } from "react-router-dom";
 
 const Sex = ({go, next, previous, formData, setForm}) => {
     const { sex } = formData

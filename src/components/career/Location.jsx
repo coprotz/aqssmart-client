@@ -2,6 +2,7 @@
 import {motion} from 'framer-motion'
 import { regions } from '../Regions'
 import { useState } from 'react'
+import { Link } from "react-router-dom";
 
 
 const Location = ({go, next, previous, formData, setForm, steps}) => {

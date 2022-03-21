@@ -13,9 +13,10 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
   const dispatch = useDispatch();
 
-  // const { status, signinStatus } = useSelector((state) => state?.users)
+  const { status, signinStatus } = useSelector((state) => state?.authUser)
 
   const type = useSelector((state) => state?.authUser?.user?.type) 
+  const message = useSelector((state) => state?.authUser?.user?.message)
 
   const Continue = async (e) => {
     e.preventDefault();
@@ -31,12 +32,15 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
     try {
       dispatch(signinUser(verifyPhone))
-
+      if(status !== 'rejected'){
+        next();
+      }
+      
     } catch (err) {
       dispatch(signinUser())
     }
 
-    next();
+    
   }
 
   return (
@@ -46,7 +50,7 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
           <label>Please enter a mobile number</label> 
           {error? 
               <div className='error'>{error}</div>
-          : null}         
+          : status === 'rejected' ? <div className='error'>Fail to log in, please try again</div> : null}         
         </div>     
       <form onSubmit={Continue} className="login_form_wrapper">
         <motion.div initial={{ x: '-100vw' }}

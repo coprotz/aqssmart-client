@@ -4,6 +4,7 @@ import { FaArrowRight} from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Footer from '../Footer';
 import Logo from '../../images/amzuu1.png'
+import { Link } from "react-router-dom";
 
 const Age = ({go, next, previous, formData, setForm}) => {
     const { age } = formData
@@ -11,7 +12,7 @@ const Age = ({go, next, previous, formData, setForm}) => {
   return (
     <div className='login'>
       <div className="logo_2" onClick={() => go('1')}>
-        <img src={Logo} alt="" />
+      <Link to='/careers'><img src={Logo} alt="" /></Link>
       </div>
       <div className="login_wrapper"> 
         <div className="login_1"> 

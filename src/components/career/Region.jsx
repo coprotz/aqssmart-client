@@ -6,6 +6,7 @@ import Footer from '../Footer';
 import Logo from '../../images/amzuu1.png'
 import { regions } from '../Regions'
 import { useState } from 'react'
+import { Link } from "react-router-dom";
 
 const Region = ({go, next, previous, formData, setForm}) => {
     const { region } = formData

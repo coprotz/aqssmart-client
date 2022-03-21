@@ -6,6 +6,7 @@ import Footer from '../Footer';
 import Logo from '../../images/amzuu1.png'
 import { signupUser } from '../../redux/slices/users/authUserSlice';
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from "react-router-dom";
 
 const Views = ({go, next, previous, formData, setForm, steps}) => {
 
@@ -29,7 +30,7 @@ const Views = ({go, next, previous, formData, setForm, steps}) => {
 
     const dispatch = useDispatch();
 
-    const { status, error, signupStatus } = useSelector((state) => state.authUser)
+    const { status, error, signupStatus } = useSelector((state) => state?.authUser)
     const message = useSelector((state) => state?.authUser?.user?.message) 
     const type = useSelector((state) => state?.authUser?.user?.type) 
   
@@ -58,13 +59,14 @@ const Views = ({go, next, previous, formData, setForm, steps}) => {
       console.log(user)
       try {
           dispatch(signupUser(user))
+          if(type==='success' ){
+            {next()};
+       }
 
       } catch (err) {
           dispatch(signupUser())
       }
-      if(type==='success' ){
-           {next()};
-      }
+      
     }
 
     console.log(signupStatus)
@@ -83,7 +85,7 @@ const Views = ({go, next, previous, formData, setForm, steps}) => {
           </div>
           <div className="login_1_top"> 
 
-          {message? <div className='success'>{message}</div> : error? <div className='error'>{error}</div>: null}          
+          {message? <div className='success'>{message}</div> : error? <div className='error'>{error}</div>: status === 'rejected'? <div className='error'>Fail to create account</div> :null }          
             <div className="login_logo">
                 <span className="login_btn_action" onClick={() => {previous()}}>
                       <button className='login_close_btn'><AiOutlineArrowLeft /></button>

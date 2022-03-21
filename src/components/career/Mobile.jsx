@@ -4,6 +4,7 @@ import { FaArrowRight} from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Footer from '../Footer';
 import Logo from '../../images/amzuu1.png'
+import { Link } from "react-router-dom";
 
 const Mobile = ({go, next, previous, formData, setForm}) => {
     const { phone } = formData
