@@ -260,7 +260,7 @@ const Applicant = ({ user, certs }) => {
                                     <span>CONTRACT DOC</span>
                                     {user?.contract === 'NA' ? 'Not Available' :
                                         (<a
-                                            href={`http://localhost:8800/contracts/${user?.contract}`}
+                                            href={`https://aqssmart.herokuapp.com/contracts/${user?.contract}`}
                                             className='download_contract'
                                             target='_blank' 
                                             // className='download_c'
