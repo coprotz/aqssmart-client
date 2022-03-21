@@ -32,7 +32,7 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
     try {
       dispatch(signinUser(verifyPhone))
-      if(signinStatus === 'success'){
+      if(!error){
         next();
       }
       
