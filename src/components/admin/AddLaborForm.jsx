@@ -71,7 +71,7 @@ const AddLaborForm = ({addNew, setAddNew, user}) => {
 
     const selectedSkills = selected.map((s) => s.name)
 
-    console.log('seleSkills', selectedSkills)
+    // console.log('seleSkills', selectedSkills)
 
   // console.log(laborSkills.response)
 
@@ -97,7 +97,7 @@ const AddLaborForm = ({addNew, setAddNew, user}) => {
             dispatch(addLabor())
         }
 
-        console.log(newLabor)
+        // console.log(newLabor)
         
 
 

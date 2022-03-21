@@ -52,7 +52,7 @@ const AddMaterialForm = ({addNew, setAddNew, user}) => {
             dispatch(addMaterial())
         }
 
-        console.log('material', newMaterial)
+        // console.log('material', newMaterial)
   
 
     }

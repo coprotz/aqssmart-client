@@ -26,19 +26,19 @@ const Code = ({go, next, previous, formData, setForm}) => {
   // const { error } = useSelector((state) => state?.authUser)
   const {signinStatus, error, status} = useSelector((state) => state.verifyUser)
 
-  console.log(signinStatus)
+  // console.log(signinStatus)
   
-  console.log('type', type)
+  // console.log('type', type)
 
   // const { status, error, signupStatus } = useSelector((state) => state.authUser)
     const message = useSelector((state) => state?.authUser?.user?.message)
     // const type = useSelector((state) => state?.authUser?.user?.message)
 
-    console.log('message', message)
+    // console.log('message', message)
 
-  console.log('userId', userId)
-  console.log('username', username)
-  console.log('otp', otp1)
+  // console.log('userId', userId)
+  // console.log('username', username)
+  // console.log('otp', otp1)
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -50,10 +50,7 @@ const Code = ({go, next, previous, formData, setForm}) => {
 
     try {
       dispatch(verifyUser(user))
-      // if (isComplete === true) {
-      //   navigate(`/admin/${username}`)
-      // } else {
-        if(type === 'success'){
+             if(!error){
           navigate(`/applicant/${username}`)
         }
         

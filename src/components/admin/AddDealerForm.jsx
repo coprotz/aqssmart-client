@@ -31,7 +31,7 @@ const AddDealerForm = ({addNew, setAddNew }) => {
   
     const selectedReg = regions.find((r) => r.name === region)
 
-        console.log(user)
+        // console.log(user)
 
     const { error, status, addStatus } = useSelector((state) => state.dealers)
 
@@ -65,7 +65,7 @@ const AddDealerForm = ({addNew, setAddNew }) => {
         } catch (error) {
             dispatch(addDealer())
         };
-        console.log(newDealer)
+        // console.log(newDealer)
      
     }
 

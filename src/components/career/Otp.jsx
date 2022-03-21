@@ -45,10 +45,7 @@ const Otp = ({ go, next, previous, formData, setForm }) => {
     }
 
     try {
-      dispatch(verifyUser(user))
-      // if (isComplete === true) {
-      //   navigate(`/admin/${username}`)
-      // } else {
+      dispatch(verifyUser(user))     
         if(!error){
           navigate(`/applicant/${username}`)
         }

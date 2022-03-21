@@ -54,7 +54,7 @@ const AddEquipForm = ({addNew, setAddNew, user}) => {
         } catch (error) {
             dispatch(addEquip())
         }
-    console.log(newEquip)
+    // console.log(newEquip)
 } 
 
   return (

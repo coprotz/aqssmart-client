@@ -17,7 +17,7 @@ const DealersAdmin = ({active, setActive, users}) => {
   // const [action, setAction] = useState(null)
 
   const dispatch = useDispatch();
-  console.log('dealers', dealers)
+  // console.log('dealers', dealers)
 
   return (
     <div className='suppllier__wrapper'>

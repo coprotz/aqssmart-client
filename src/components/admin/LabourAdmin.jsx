@@ -16,7 +16,7 @@ const LabourAdmin = ({active, setActive, userLabors, user}) => {
   const users = useSelector((state) => state?.users?.users)
   const labors = useSelector((state) => state?.labors.labors)
 
-  console.log('user', users)
+  // console.log('user', users)
 
  const PF = 'http://localhost:3000/img'
 

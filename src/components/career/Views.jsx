@@ -56,10 +56,10 @@ const Views = ({go, next, previous, formData, setForm, steps}) => {
           computer: computer,
           english: english,
       }
-      console.log(user)
+      // console.log(user)
       try {
           dispatch(signupUser(user))
-          if(type==='success' ){
+          if(!error){
             {next()};
        }
 
@@ -69,7 +69,7 @@ const Views = ({go, next, previous, formData, setForm, steps}) => {
       
     }
 
-    console.log(signupStatus)
+    // console.log(signupStatus)
 
     const [terms, setTerms] = useState(false)
 

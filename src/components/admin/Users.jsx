@@ -18,13 +18,13 @@ const Users = ({active, setActive, userLabors, user }) => {
 
   const users = useSelector((state) => state.users.users)
 
-  console.log('users', users)
+  // console.log('users', users)
 
 
 
   const [modal_User, setUpdateUser] = useState(null)
 
-  const PF = 'http://localhost:3000/img'
+  const PF = 'https://objective-hamilton-9df92b.netlify.app/img'
 
 
   return (
@@ -79,7 +79,7 @@ const Users = ({active, setActive, userLabors, user }) => {
                   <td data-label='User Type'>{u.userType}</td>
                   <td data-label='Position Applied'>{u.position}</td>  
                   <td data-label='Application Status'>{u.appliStatus}</td>  
-                  <td data-label='Contrcat'><a href={`http://localhost:8800/contracts/${u.contract}`} target="_blank">{u.contract}</a></td>                 
+                  <td data-label='Contrcat'><a href={`https://aqssmart.herokuapp.com/contracts/${u.contract}`} target="_blank">{u.contract}</a></td>                 
                   <td data-label='Action'>                
                   <button className='admin_action_btn' onClick={() => setUpdateUser(u)}>                   
                       Update User               

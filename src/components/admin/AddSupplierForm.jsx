@@ -57,7 +57,7 @@ const AddSupplierForm = ({addNew, setAddNew, user}) => {
         } catch (error) {
             dispatch(addSupplier())
         };
-        console.log(newSupplier)
+        // console.log(newSupplier)
   
 
     }
