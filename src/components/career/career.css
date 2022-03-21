@@ -143,13 +143,13 @@
     width: 100%;
     top: 0;
     left: 0;
-    height: 5px;
-    background: #c1c2c3;
+    height: 9px;
+    background: rgb(253, 242, 215);
     display: flex;
     justify-content: flex-start;
 }
 .progres_status{
-    height: 5px;
+    height: 9px;
     background: darkgoldenrod;
     -webkit-transition: width 1s ease-in-out;
     -moz-transition: width 1s ease-in-out;
