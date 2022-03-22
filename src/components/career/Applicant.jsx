@@ -260,7 +260,7 @@ const Applicant = ({ user, certs }) => {
                                     <span>CONTRACT DOC</span>
                                     {user?.contract === 'NA' ? 'Not Available' :
                                         (<a
-                                            href={`https://objective-hamilton-9df92b.netlify.app/${user?.contract}`}
+                                            href={`https://aqssmart.herokuapp.com/${user?.contract}`}
                                             className='download_contract'
                                             target='_blank' 
                                             // className='download_c'
