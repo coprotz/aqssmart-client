@@ -104,4 +104,4 @@ const authUserSlice = createSlice({
 
 export default authUserSlice.reducer;
 
-export const { userId, message } = (state) => state.signin.data
+export const { userId, message, type } = (state) => state.signin.data
