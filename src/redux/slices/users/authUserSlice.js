@@ -17,8 +17,8 @@ export const signinUser = createAsyncThunk(
             return data
 
         } catch (error) {
-            console.log(error.response.name)
-            return rejectWithValue(error);            
+            console.log(error.response)
+            return rejectWithValue(error.response);            
         }
     }
 );
@@ -33,7 +33,7 @@ export const signupUser = createAsyncThunk(
             return data;
         } catch (error) {
             console.log(error.response)
-            return rejectWithValue(error.response);  
+            return rejectWithValue(error);  
         }
     }
 );

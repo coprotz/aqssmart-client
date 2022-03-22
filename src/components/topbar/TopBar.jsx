@@ -35,7 +35,7 @@ const TopBar = ({
   const handleLogout = () => {
     dispatch(logout())
     navigate("/careers")
-    window.location.reload(false)
+    window.location.reload()
 
   }
 
