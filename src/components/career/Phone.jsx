@@ -19,9 +19,9 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
   // console.log(signinStatus)
 
-  // const type = useSelector((state) => state?.authUser?.user?.type) 
-  // const message = useSelector((state) => state?.authUser?.user?.message)
-  const { type, message } = (state) => state?.users?.signin?.data
+  const type = useSelector((state) => state?.authUser?.user?.type) 
+  const message = useSelector((state) => state?.authUser?.user?.message)
+  // const { type, message } = (state) => state?.users?.signin?.data
 
   // console.log('type',type)
   // console.log('message', message)
