@@ -1,5 +1,6 @@
 import React from 'react'
 import Labbg from '../../../images/lab.jpg'
+import { Link } from "react-router-dom";
 
 const Laboures = () => {
   return (
@@ -9,7 +10,7 @@ const Laboures = () => {
             <span className='separator'></span>
             <p>Available skills of labour can be available at your location. 
                 </p>
-                <a href='/login'><button button className='sli__btn'>Get Started</button></a>
+                <Link to='/login'><button className='sli__btn'>Get Started</button></Link>
         </div>
         <img src={Labbg} className="slide__img"/>
     </div>

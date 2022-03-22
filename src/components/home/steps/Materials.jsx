@@ -1,5 +1,6 @@
 import React from 'react'
 import Matbg from '../../../images/mat.jpg'
+import { Link } from "react-router-dom";
 
 const Materials = () => {
   return (
@@ -10,7 +11,7 @@ const Materials = () => {
             <p>Materials prices can be obtain from various suppliers within the Country and outside. Select the best
               suppliers at your destination.
                 </p>
-                <a href='/login'><button className='sli__btn'>Get Started</button></a>
+                <Link to='/login'><button className='sli__btn'>Get Started</button></Link>
         </div>
         <img src={Matbg} className="slide__img"/>
     </div>

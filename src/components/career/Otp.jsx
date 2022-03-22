@@ -23,18 +23,20 @@ const Otp = ({ go, next, previous, formData, setForm }) => {
   // const { error } = useSelector((state) => state?.authUser)
   const {signinStatus, error, status} = useSelector((state) => state.verifyUser)
 
-  console.log(signinStatus)
+  // console.log(signinStatus)
   
-  console.log('type', type)
+  // console.log('type', type)
 
   // const { status, error, signupStatus } = useSelector((state) => state.authUser)
     const message = useSelector((state) => state?.authUser?.user?.message)
 
-    console.log('message', message)
+  //   console.log('message', message)
 
-  console.log('userId', userId)
-  console.log('username', username)
-  console.log('otp', otp1)
+  console.log(error)
+
+  // console.log('userId', userId)
+  // console.log('username', username)
+  // console.log('otp', otp1)
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -46,14 +48,15 @@ const Otp = ({ go, next, previous, formData, setForm }) => {
 
     try {
       dispatch(verifyUser(user))     
-        if(!error){
-          navigate(`/applicant/${username}`)
-        }
+      
         
       // }
 
     } catch (error) {
       dispatch(verifyUser())
+    }
+    if(!error){
+      navigate(`/applicant/${username}`)
     }
 
     // navigate('/applicant/1')
@@ -69,12 +72,9 @@ const Otp = ({ go, next, previous, formData, setForm }) => {
           </span>
           <label>{phone}</label> 
         </div>
-        {error? 
-              <div className='error'>{error}</div>
-        : null} 
-        {message? 
-            <div className='success'>{message}</div>
-        : null} 
+        { message? <div className='success'>{message}</div> : null} 
+              
+     
         <div className="code_login">          
           <label>Please enter OTP</label> 
         </div>

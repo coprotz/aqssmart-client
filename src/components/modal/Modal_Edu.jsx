@@ -20,6 +20,8 @@ const Modal_Location = ({ user, modal_Edu, setModal_Edu, setFeedback, editUserSt
 
     const [formData, setForm] = useForm(defaultData)
 
+    const {status, error} = useSelector((state) => state?.verifyUser)
+
     const dispatch = useDispatch();
 
     const id = user._id
@@ -47,7 +49,7 @@ const Modal_Location = ({ user, modal_Edu, setModal_Edu, setFeedback, editUserSt
         } catch (error) {
             dispatch(editUser())
         }
-        console.log(updateEducation)
+        // console.log(updateEducation)
         setModal_Edu(null)
         setFeedback(editUserStatus)
         const timer = setTimeout(() => {
@@ -114,7 +116,20 @@ const Modal_Location = ({ user, modal_Edu, setModal_Edu, setFeedback, editUserSt
                                 <div className="btn-radio"><input type="radio" name="emploStatus" value="Fleerancer" />Fleerancer</div>
                             </div>
                         </div>
-                        <button type='submit' className='modal_close_btn'>EDIT</button>
+                        {status === 'pending'? 
+                         <button
+                            className='modal_close_btn' 
+                            disabled={true}             
+                           >Saving...
+                        </button>
+                        :
+                        <button
+                            className='modal_close_btn'                          
+                            type='submit'
+                        >EDIT
+                        </button>
+                        }
+                      
                     </form>
 
                 </div>

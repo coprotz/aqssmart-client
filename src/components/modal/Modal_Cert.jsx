@@ -139,13 +139,19 @@ const Modal_Cert = ({ setModal_Crt, modal_Crt, user, setFeedback }) => {
                             // onChange={(e) => setCertName(e.target.value)}
                             />
                         </div>
-
+                        {status === 'pending'? 
+                         <button
+                            className='modal_close_btn'              
+                           >Saving...
+                        </button>
+                        :
                         <button
                             className='modal_close_btn'
                             onClick={saveCert}
                             type='submit'
-                        >{modal_Crt !== true ? 'EDIT' : 'ADD'}</button>
-
+                        >{modal_Crt !== true ? 'EDIT' : 'ADD'}
+                        </button>
+                        }
                     </form>
 
                 </div>

@@ -18,7 +18,7 @@ export const signinUser = createAsyncThunk(
 
         } catch (error) {
             console.log(error)
-            return rejectWithValue(error.response.data);            
+            return rejectWithValue(error);            
         }
     }
 );
@@ -32,8 +32,8 @@ export const signupUser = createAsyncThunk(
             const { data }  = await axios.post(apiUrl, payload );
             return data;
         } catch (error) {
-            console.log(error.response.data)
-            return rejectWithValue(error.response.data);  
+            console.log(error.response)
+            return rejectWithValue(error.response);  
         }
     }
 );

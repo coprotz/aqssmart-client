@@ -32,13 +32,14 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
     try {
       dispatch(signinUser(verifyPhone))
-      if(!error){
-        next();
-      }
-      
+     
     } catch (err) {
       dispatch(signinUser())
     }
+    if(error.name !== 'TypeError'){
+      {next();}
+    }
+    
 
     
   }
@@ -48,9 +49,8 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
            
         <div className="login_sub_title">
           <label>Please enter a mobile number</label> 
-          {error? 
-              <div className='error'>{error}</div>
-          : status === 'rejected' ? <div className='error'>Fail to log in, please try again</div> : null}         
+          
+          { status === 'rejected' ? <div className='error'>Fail to log in, please try again</div> : null}         
         </div>     
       <form onSubmit={Continue} className="login_form_wrapper">
         <motion.div initial={{ x: '-100vw' }}

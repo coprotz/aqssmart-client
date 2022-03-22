@@ -104,7 +104,7 @@ const Modal_Location = ({user, setModal_Loc}) => {
                         />
                 </div>
    
-                <button className='modal_close_btn'>{status === 'pending' ? 'Sending' : 'UPDATE'}</button> 
+                <button className='modal_close_btn'>{status === 'pending' ? 'Sending please wait..' : 'UPDATE'}</button> 
             </form>
             
         </div>

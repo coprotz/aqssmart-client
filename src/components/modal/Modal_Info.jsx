@@ -102,10 +102,9 @@ const Modal_Info = ({ setShowModal_Info, user, setFeedback, editUserStatus }) =>
                                 className='form_group_input'
                                 onChange={setForm}
                             />
-                        </div>
+                        </div>                    
 
-
-                        <button className='modal_close_btn'>{status === 'pending' ? 'Sending' : 'EDIT'}</button>
+                        <button className='modal_close_btn'>{status === 'pending' ? 'Sending please wait..' : 'EDIT'}</button>
                     </form>
 
                 </div>

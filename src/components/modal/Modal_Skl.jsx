@@ -4,7 +4,7 @@ import { appSkills } from '../career/appSkills';
 import './modal.css'
 import { useForm } from "react-hook-form";
 // import { useForm } from 'react-hooks-helper'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addSkill } from '../../redux/slices/skills/skillsSlice';
 import { editUser } from '../../redux/slices/users/verifyUserSlice';
 
@@ -14,6 +14,8 @@ const defaultData = {
 }
 
 const Modal_Skl = ({ setShowModal_Skl, showModal_Skl, user, setFeedback }) => {
+
+    const {error, status} = useSelector((state) => state?.verifyUser)
 
 
     const [skills, setSkills] = useState([])
@@ -120,11 +122,20 @@ const Modal_Skl = ({ setShowModal_Skl, showModal_Skl, user, setFeedback }) => {
 
                             </div>
                         </div>
+                        {status === 'pending'? 
+                         <button
+                            className='modal_close_btn'              
+                           >Saving, please wait...!
+                        </button>
+                        :
                         <button
                             className='modal_close_btn'
-                            type='submit'
                             onClick={saveSkill}
-                        >{showModal_Skl !== true ? 'EDIT' : 'ADD'}</button>
+                            type='submit'
+                        >{showModal_Skl !== true ? 'EDIT' : 'ADD'}
+                        </button>
+                        }
+                      
 
                     </form>
 

@@ -33,6 +33,8 @@ const Views = ({go, next, previous, formData, setForm, steps}) => {
     const { status, error, signupStatus } = useSelector((state) => state?.authUser)
     const message = useSelector((state) => state?.authUser?.user?.message) 
     const type = useSelector((state) => state?.authUser?.user?.type) 
+
+    console.log(type)
   
     const move = (15/15)*100
 
@@ -59,13 +61,14 @@ const Views = ({go, next, previous, formData, setForm, steps}) => {
       // console.log(user)
       try {
           dispatch(signupUser(user))
-          if(!error){
-            {next()};
-       }
+       
 
       } catch (err) {
           dispatch(signupUser())
       }
+      if(!error){
+        {next()};
+   }
       
     }
 
@@ -85,7 +88,7 @@ const Views = ({go, next, previous, formData, setForm, steps}) => {
           </div>
           <div className="login_1_top"> 
 
-          {message? <div className='success'>{message}</div> : error? <div className='error'>{error}</div>: status === 'rejected'? <div className='error'>Fail to create account</div> :null }          
+          {signupStatus !== 'success'? <div className='error'>Fail to create account</div> :null }          
             <div className="login_logo">
                 <span className="login_btn_action" onClick={() => {previous()}}>
                       <button className='login_close_btn'><AiOutlineArrowLeft /></button>

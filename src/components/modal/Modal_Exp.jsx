@@ -22,7 +22,7 @@ const Modal_Exp = ({ setModal_Exp, user, modal_Exp, setFeedback }) => {
 
     const { yearStart, yearEnd, company, position } = formData;
 
-   
+    const {status, error} = useSelector((state) => state?.verifyUser)
 
 
     const saveAppExperience = (e) => {
@@ -59,7 +59,7 @@ const Modal_Exp = ({ setModal_Exp, user, modal_Exp, setFeedback }) => {
             dispatch(addExperience())
         }
 
-        console.log(newExperience)
+        // console.log(newExperience)
         setModal_Exp(null)
     }
 
@@ -113,7 +113,20 @@ const Modal_Exp = ({ setModal_Exp, user, modal_Exp, setFeedback }) => {
                             </div>
 
                         </div>
-                        <button className='modal_close_btn' onClick={saveAppExperience}>{modal_Exp === true ? 'ADD' : 'EDIT'}</button>
+                        {status === 'pending'? 
+                         <button
+                            className='modal_close_btn'              
+                           >Saving...
+                        </button>
+                        :
+                        <button
+                            className='modal_close_btn'
+                            onClick={saveAppExperience}
+                            type='submit'
+                        >{modal_Exp === true ? 'ADD' : 'EDIT'}
+                        </button>
+                        }
+                        
 
                     </form>
 
