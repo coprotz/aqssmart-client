@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { signinUser } from '../../redux/slices/users/authUserSlice'
 import { FaArrowRight} from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { userSkills } from '../applicants'
 
 
 const Phone = ({ go, next, previous, formData, setForm }) => {
@@ -13,14 +14,14 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
   const dispatch = useDispatch();
 
-  const { error, status, signinStatus } = useSelector((state) => state?.authUser)
+  const { type, message } = useSelector((state) => state?.authUser)
 
 
   // console.log(signinStatus)
 
   // const type = useSelector((state) => state?.authUser?.user?.type) 
   // const message = useSelector((state) => state?.authUser?.user?.message)
-  const { type, message } = (state) => state?.signin?.data
+  // const { type, message } = (state) => state?.users?.signin?.data
 
   console.log('type',type)
   console.log('message', message)
