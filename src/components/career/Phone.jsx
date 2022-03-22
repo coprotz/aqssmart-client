@@ -9,11 +9,14 @@ import { Link } from "react-router-dom";
 
 const Phone = ({ go, next, previous, formData, setForm }) => {
   const { phone } = formData
-  const [error, setError] = useState()
+  const [phoneError, setError] = useState()
 
   const dispatch = useDispatch();
 
-  const { status, signinStatus } = useSelector((state) => state?.authUser)
+  const { error, status, signinStatus } = useSelector((state) => state?.authUser)
+
+
+  console.log(status)
 
   const type = useSelector((state) => state?.authUser?.user?.type) 
   const message = useSelector((state) => state?.authUser?.user?.message)
@@ -32,12 +35,15 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
     try {
       dispatch(signinUser(verifyPhone))
+      if(error !=='rejected' || !phoneError){
+        return null
+    }else {
+      next();
+    }
+    
      
     } catch (err) {
       dispatch(signinUser())
-    }
-    if(error.name !== 'TypeError'){
-      {next();}
     }
     
 
@@ -50,7 +56,9 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
         <div className="login_sub_title">
           <label>Please enter a mobile number</label> 
           
-          { status === 'rejected' ? <div className='error'>Fail to log in, please try again</div> : null}         
+          { status === 'rejected' ? <div className='error'>Fail to log in, please try again</div> 
+          : phoneError? <div className='error'>{phoneError}</div>
+          : null}         
         </div>     
       <form onSubmit={Continue} className="login_form_wrapper">
         <motion.div initial={{ x: '-100vw' }}

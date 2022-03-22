@@ -17,7 +17,7 @@ export const signinUser = createAsyncThunk(
             return data
 
         } catch (error) {
-            console.log(error)
+            console.log(error.response.name)
             return rejectWithValue(error);            
         }
     }

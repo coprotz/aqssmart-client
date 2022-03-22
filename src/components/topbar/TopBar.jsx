@@ -121,7 +121,8 @@ const TopBar = ({
               : null}
 
           </div>
-          <button className="top_btn btn_mob" onClick={() => window.location.reload(false)}><BiRefresh/></button>
+          {/* <button className="top_btn btn_mob" onClick={() => window.location.reload(false)}><BiRefresh/></button> */}
+          {user?
           <div className="toggle_wrapper toggle_hiden">
                   
                   
@@ -136,7 +137,7 @@ const TopBar = ({
                       <span>Left Blank</span>                   
                     </div>
                   }
-            </div>
+            </div>: null}
             
           <div className='menu' onClick={() => setShow(!show)}>{show ? <AiOutlineClose /> : <AiOutlineMenu />}</div>
         </div>
