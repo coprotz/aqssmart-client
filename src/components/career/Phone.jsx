@@ -18,8 +18,9 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
   console.log(signinStatus)
 
-  const type = useSelector((state) => state?.authUser?.user?.type) 
-  const message = useSelector((state) => state?.authUser?.user?.message)
+  // const type = useSelector((state) => state?.authUser?.user?.type) 
+  // const message = useSelector((state) => state?.authUser?.user?.message)
+  const { type, message } = (state) => state?.signin?.data
 
   const Continue = async (e) => {
     e.preventDefault();
@@ -27,6 +28,8 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
     if (phone.length !== 13 || phone === '') {
       return setError("Phone Number cannot be less than 13 digits..!")
     }
+
+    console.log(message)
 
     // console.log(status)
 
@@ -58,8 +61,10 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
         <div className="login_sub_title">
           <label>Please enter a mobile number</label> 
           
-          { status === 'rejected' ? <div className='error'>Fail to log in, please try again</div> 
-          : phoneError? <div className='error'>{phoneError}</div>
+          {/* { status === 'rejected' ? <div className='error'>Fail to log in, please try again</div>  */}
+          {phoneError? <div className='error'>{phoneError}</div>
+          : message? <div className='error'>{message}</div>
+
           : null}         
         </div>     
       <form onSubmit={Continue} className="login_form_wrapper">
