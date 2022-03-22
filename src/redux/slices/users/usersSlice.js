@@ -21,11 +21,13 @@ export const fetchUsers = createAsyncThunk(
         try {
             const { data } = await axios.get("https://aqssmart.herokuapp.com/api/users")
             return data
+            
 
         } catch (error) {
-            console.log(error)
+            console.log(error.response.data)
             return rejectWithValue(error.response.data);
         }
+        
     }
 );
 
