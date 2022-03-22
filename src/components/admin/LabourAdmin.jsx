@@ -18,7 +18,7 @@ const LabourAdmin = ({active, setActive, userLabors, user}) => {
 
   // console.log('user', users)
 
- const PF = 'http://localhost:3000/img'
+ const PF = 'https://objective-hamilton-9df92b.netlify.app/img'
 
 
   return (
