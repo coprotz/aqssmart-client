@@ -16,7 +16,7 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
   const { error, status, signinStatus } = useSelector((state) => state?.authUser)
 
 
-  console.log(status)
+  console.log(signinStatus)
 
   const type = useSelector((state) => state?.authUser?.user?.type) 
   const message = useSelector((state) => state?.authUser?.user?.message)
@@ -28,6 +28,8 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
       return setError("Phone Number cannot be less than 13 digits..!")
     }
 
+    // console.log(status)
+
 
     const verifyPhone = {
       phone: phone
@@ -35,11 +37,9 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
     try {
       dispatch(signinUser(verifyPhone))
-      if(error !=='rejected' || !phoneError){
-        return null
-    }else {
-      next();
-    }
+      if(type ==='success' || !phoneError){
+       next();
+      }
     
      
     } catch (err) {
@@ -49,6 +49,8 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
     
   }
+
+  // console.log('status', status)
 
   return (
     <div className='login_phone'>
