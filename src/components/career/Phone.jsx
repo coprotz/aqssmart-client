@@ -14,17 +14,17 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
 
   const dispatch = useDispatch();
 
-  const { type, message } = useSelector((state) => state?.authUser)
+  // const { type, message } = useSelector((state) => state?.authUser)
 
 
   // console.log(signinStatus)
 
   // const type = useSelector((state) => state?.authUser?.user?.type) 
   // const message = useSelector((state) => state?.authUser?.user?.message)
-  // const { type, message } = (state) => state?.users?.signin?.data
+  const { type, message } = (state) => state?.users?.signin?.data
 
-  console.log('type',type)
-  console.log('message', message)
+  // console.log('type',type)
+  // console.log('message', message)
 
   const Continue = async (e) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ const Phone = ({ go, next, previous, formData, setForm }) => {
       return setError("Phone Number cannot be less than 13 digits..!")
     }
 
-    console.log(message)
+    // console.log(message)
 
     // console.log(status)
 
